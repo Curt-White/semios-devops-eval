@@ -29,4 +29,5 @@ jobs:
     
     steps:
       - uses: actions/checkout@v2
-      - name: echo "hellow world"
+      - name: echo
+        run: echo "hellow world"
