@@ -19,8 +19,7 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-
-      # Runs a single command using the runners shells
+      
       - name: test if the file index.html exists
         run: test -f index.html
 
@@ -29,4 +28,5 @@ jobs:
     needs: test
     
     steps:
+      - uses: actions/checkout@v2
       - name: echo "hellow world"
