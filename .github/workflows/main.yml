@@ -28,5 +28,13 @@ jobs:
     
     steps:
       - uses: actions/checkout@v2
-      - name: echo
-        run: echo "hellow world"
+      - name: replace COMMIT_HASH
+      - run: sed -i's/COMMIT_HASH/${GITHUB_SHA::8}/' index.html 
+
+      - name: deploy to surge
+        uses: dswistowski/surge-sh-action@v1
+        with:
+          domain: 'curtscrazyclocks.surge.sh'
+          project: '.'
+          login: ${{ secrets.SURGE_LOGIN }}
+          token:  ${{ secrets.SURGE_TOKEN }}
