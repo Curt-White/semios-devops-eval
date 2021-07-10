@@ -5,6 +5,7 @@ on:
     branches:
       - master
 
+# Will run on deploy
 jobs:
   deploy:
     runs-on: ubuntu-latest
